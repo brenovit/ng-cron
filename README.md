@@ -81,3 +81,5 @@ Here is the versions compatibility list:
 | 17.0.0           | 17.x.x        | 4.x.x, 5.x.x   |
 | 18.0.0           | 18.x.x        | 4.x.x, 5.x.x   |
 | 19.0.0           | 19.x.x        | 4.x.x, 5.x.x   |
+| 20.0.0           | 20.x.x        | 4.x.x, 5.x.x   |
+
