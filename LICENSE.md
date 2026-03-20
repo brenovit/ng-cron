@@ -2,6 +2,7 @@ MIT License
 
 Copyright (c) 2017-2023 sbzen (Original Authors)
 Copyright (c) 2025 k0say
+Copyright (c) 2026 brenovit
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

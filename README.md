@@ -23,14 +23,14 @@ Please check the [demo & documentation](https://ngcron.emptyui.com/) and the lis
 </p>
 
 <p align="center">
-	<a href="https://badge.fury.io/js/%40k0say%2Fng-cron">
+	<a href="https://badge.fury.io/js/%40brenovit%2Fng-cron">
 		<img
-			src="https://img.shields.io/npm/dm/@k0say/ng-cron.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen"
+			src="https://img.shields.io/npm/dm/@brenovit/ng-cron.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen"
 			alt="npm version">
 	</a>
-	<a href="https://npmjs.org/%40k0say%2Fng-cron">
+	<a href="https://npmjs.org/%40brenovit%2Fng-cron">
 		<img
-			src="https://img.shields.io/npm/v/@k0say/ng-cron.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen"
+			src="https://img.shields.io/npm/v/@brenovit/ng-cron.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen"
 			alt="npm downloads">
 	</a>
 </p>
@@ -44,14 +44,14 @@ Inspired by this [non-angular](https://www.freeformatter.com/cron-expression-gen
 ## Installation
 You can use either the npm or yarn command-line tool to install packages.
 ```
-npm install --save @k0say/ng-cron
+npm install --save @brenovit/ng-cron
 ```
 
 ## Display the cron component
 You need to import the QuartzCronModule that you want to display by adding the following lines to your ngModule.
 
 ```
-import { QuartzCronModule } from '@k0say/ng-cron';
+import { QuartzCronModule } from '@brenovit/ng-cron';
 
 @NgModule ({
   imports: [QuartzCronModule]

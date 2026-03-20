@@ -1,12 +1,12 @@
 {
-  "name": "@k0say/ng-cron",
-  "version": "19.0.4",
+  "name": "@brenovit/ng-cron",
+  "version": "19.2.0",
   "description": "Quartz Cron Component - Angular",
   "author": "Serhii Bzenko <bzenkosergey@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:k0say/ng-cron.git"
+    "url": "git+ssh://git@github.com:brenovit/ng-cron.git"
   },
   "homepage": "https://ngcron.emptyui.com/",
   "keywords": [
