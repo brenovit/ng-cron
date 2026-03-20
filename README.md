@@ -1,12 +1,10 @@
 # Quartz/Unix Cron Component - Angular
 
-# @k0say/ng-cron
+# @brneovit/ng-cron
 
-This library is a fork of [@sbzen/ng-cron](https://www.npmjs.com/package/@sbzen/ng-cron),
-originally created by **sbzen** and licensed under MIT.
+This library is a fork of [@k0say/ng-cron](https://www.npmjs.com/package/@k0say/ng-cron), that is a fork of [@sbzen/ng-cron](https://www.npmjs.com/package/@sbzen/ng-cron), originally created by **sbzen** and licensed under MIT.
 
-This fork updates Angular and dependencies to newer versions (Angular 19) and introduces
-minor improvements for compatibility.
+This fork updates Angular and dependencies to newer versions (Angular 21) and introduces minor improvements for compatibility.
 
 See [LICENSE](./LICENSE) and [NOTICE](./NOTICE) for details.
 
