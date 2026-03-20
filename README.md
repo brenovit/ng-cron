@@ -1,6 +1,6 @@
 # Quartz/Unix Cron Component - Angular
 
-# @brneovit/ng-cron
+# @brenovit/ng-cron
 
 This library is a fork of [@k0say/ng-cron](https://www.npmjs.com/package/@k0say/ng-cron), that is a fork of [@sbzen/ng-cron](https://www.npmjs.com/package/@sbzen/ng-cron), originally created by **sbzen** and licensed under MIT.
 
