@@ -23,8 +23,8 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0"
   },
   "dependencies": {
     "@sbzen/cron-core": "2.0.2",
