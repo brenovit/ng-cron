@@ -17,7 +17,8 @@
     "storybook": "npm run docs:json && ng run ng-cron:storybook",
     "build-storybook": "npm run docs:json && ng run ng-cron:build-storybook",
     "publish-alpha": "npm publish ./dist/ng-cron --tag alpha --access=public",
-    "publish": "npm publish ./dist/ng-cron --access=public"
+    "publish": "npm publish ./dist/ng-cron --access=public",
+    "publish:local": "npm run build-lib && cd dist/ng-cron && yalc publish"
   },
   "private": false,
   "engines": {
