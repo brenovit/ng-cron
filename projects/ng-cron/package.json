@@ -1,6 +1,6 @@
 {
   "name": "@brenovit/ng-cron",
-  "version": "19.2.0",
+  "version": "19.2.1",
   "description": "Quartz Cron Component - Angular",
   "author": "Serhii Bzenko <bzenkosergey@gmail.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
   "homepage": "https://ngcron.emptyui.com/",
   "keywords": [
     "angular",
-    "bootstap",
+    "bootstrap",
     "ng",
     "ng2",
     "angular2",
@@ -23,8 +23,8 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/core": "^20.0.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   },
   "dependencies": {
     "@sbzen/cron-core": "2.0.2",
