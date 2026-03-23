@@ -4,7 +4,7 @@
 
 This library is a fork of [@k0say/ng-cron](https://www.npmjs.com/package/@k0say/ng-cron), that is a fork of [@sbzen/ng-cron](https://www.npmjs.com/package/@sbzen/ng-cron), originally created by **sbzen** and licensed under MIT.
 
-This fork updates Angular and dependencies to newer versions (Angular 21) and introduces minor improvements for compatibility.
+This fork updates Angular and dependencies to newer versions (Angular 20+) and introduces minor improvements for compatibility.
 
 See [LICENSE](./LICENSE) and [NOTICE](./NOTICE) for details.
 
@@ -41,25 +41,51 @@ This is an open source project that builds a cron builder component for Angular 
 It supports Quartz/Unix cron string formats for both input and output.
 Inspired by this [non-angular](https://www.freeformatter.com/cron-expression-generator-quartz.html) implementation.
 
-## Installation
-You can use either the npm or yarn command-line tool to install packages.
-```
-npm install --save @brenovit/ng-cron
+## Install and use @brenovit/ng-cron
+
+### 1) Install packages
+
+```bash
+npm install @brenovit/ng-cron bootstrap
 ```
 
-## Display the cron component
-You need to import the QuartzCronModule that you want to display by adding the following lines to your ngModule.
+### 2) Add Bootstrap CSS (required for default styling)
 
+Add Bootstrap globally (pick one approach):
+
+- `angular.json` (recommended):
+	- Add `node_modules/bootstrap/dist/css/bootstrap.min.css` to the `projects.<your-app>.architect.build.options.styles` array.
+- Or import it from `src/styles.css`:
+
+```css
+@import 'bootstrap/dist/css/bootstrap.min.css';
 ```
-import { QuartzCronModule } from '@brenovit/ng-cron';
 
-@NgModule ({
-  imports: [QuartzCronModule]
+### 3) Import the cron module + FormsModule
+
+If you bind using `[(ngModel)]`, you must import `FormsModule`.
+
+Example for a standalone component:
+
+```ts
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Bs5QuartzCronModule } from '@brenovit/ng-cron';
+
+@Component({
+	selector: 'app-root',
+	imports: [Bs5QuartzCronModule, FormsModule],
+	templateUrl: './app.html',
 })
+export class App {
+	cronExpression = '0 0/1 * 1/1 * ? *';
+}
 ```
-Add the cron component into yout template
-```
-<quartz-cron></quartz-cron>
+
+### 4) Use in your template
+
+```html
+<bs5-quartz-cron [(ngModel)]="cronExpression"></bs5-quartz-cron>
 ```
 
 ## Usage & Demo
