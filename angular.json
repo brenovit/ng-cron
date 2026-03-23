@@ -89,6 +89,36 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/e2e/.storybook",
+            "browserTarget": "e2e:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/e2e"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/e2e/.storybook",
+            "browserTarget": "e2e:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/e2e"
+            ],
+            "outputDir": "dist/storybook/e2e"
+          }
         }
       }
     }

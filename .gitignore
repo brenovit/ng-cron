@@ -42,3 +42,6 @@ testem.log
 Thumbs.db
 
 /e2e-results
+
+*storybook.log
+storybook-static
