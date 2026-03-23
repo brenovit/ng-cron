@@ -22,10 +22,7 @@
     "quartz cron"
   ],
   "sideEffects": false,
-  "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@sbzen/cron-core": "2.0.2",
     "tslib": "^2.3.0"
