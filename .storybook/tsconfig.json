@@ -1,22 +1,17 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "types": [
-      "node"
-    ],
+    "moduleResolution": "bundler",
+
+    "types": ["node"],
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
     "../src/test.ts",
     "../src/**/*.spec.ts",
     "../projects/**/*.spec.ts",
-    "../projects/e2e/**/*.ts",
+    "../projects/e2e/**/*.ts"
   ],
-  "include": [
-    "../stories/**/*",
-    "../projects/**/*"
-  ],
-  "files": [
-    "./typings.d.ts"
-  ]
+  "include": ["../stories/**/*", "../projects/**/*"],
+  "files": ["./typings.d.ts"]
 }
