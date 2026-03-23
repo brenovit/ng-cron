@@ -1194,7 +1194,7 @@
     "components": [
         {
             "name": "Bs4QuartzCronComponent",
-            "id": "component-Bs4QuartzCronComponent-695a9054b6f1b41711c5424a2e807003395fa2712170a4848b3ca6213f0bff4866b98a108dd43e8f0a78844018ed3b222957b67c8c338a51f49b7e2bb367b22b",
+            "id": "component-Bs4QuartzCronComponent-29668b03575013761c0b7d452a8255f33e966f333f7aea210b17dd2d53856a03d1b6e1bf8b6780c879466aedb1844dd078603f0fb20334dac83bc1008e854755",
             "file": "stories/bs4-quartz-cron.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -1208,40 +1208,44 @@
                 "../node_modules/bootstrap-legacy/scss/bootstrap.scss"
             ],
             "styles": [],
-            "template": "<input\n  class=\"form-control mb-2\"\n  readonly\n  [value]=\"value\">\n\n<quartz-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\">\n</quartz-cron>\n",
+            "template": "<input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n<quartz-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\"\n>\n</quartz-cron>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
                     "name": "activeTab",
+                    "defaultValue": "Tab.SECONDS",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 45,
                     "type": "Tab",
                     "decorators": []
                 },
                 {
                     "name": "cssClassPrefix",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 44,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "disabled",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
-                    "type": "string | null | boolean",
+                    "line": 50,
+                    "type": "string | boolean",
                     "decorators": []
                 },
                 {
                     "name": "hideTabs",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 47,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1249,16 +1253,17 @@
                     "name": "localization",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 48,
                     "type": "CronLocalization",
                     "decorators": []
                 },
                 {
                     "name": "tabs",
+                    "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
-                    "type": "Tab[]",
+                    "line": 46,
+                    "type": "Tab[] | null",
                     "decorators": []
                 },
                 {
@@ -1266,7 +1271,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 49,
                     "type": "string",
                     "decorators": []
                 }
@@ -1277,7 +1282,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 42,
                     "type": "EventEmitter"
                 },
                 {
@@ -1285,7 +1290,7 @@
                     "defaultValue": "new EventEmitter<Tab>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 43,
                     "type": "EventEmitter"
                 }
             ],
@@ -1295,12 +1300,25 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
-            "imports": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "QuartzCronModule",
+                    "type": "module"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';\nimport { Tab, CronLocalization } from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs4-quartz-cron',\n  styleUrls: ['../node_modules/bootstrap-legacy/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  template: `\n    <input\n      class=\"form-control mb-2\"\n      readonly\n      [value]=\"value\">\n\n    <quartz-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\">\n    </quartz-cron>\n  `,\n})\nexport class Bs4QuartzCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix?: string;\n  @Input() activeTab?: Tab;\n  @Input() tabs?: Tab[];\n  @Input() hideTabs?: boolean;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled?: string|null|boolean;\n}\n",
+            "sourceCode": "import {\n  Component,\n  ViewEncapsulation,\n  Input,\n  Output,\n  EventEmitter,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\nimport {\n  QuartzCronModule,\n  Tab,\n  CronLocalization,\n} from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs4-quartz-cron',\n  styleUrls: ['../node_modules/bootstrap-legacy/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  standalone: true,\n  imports: [CommonModule, FormsModule, QuartzCronModule],\n  template: `\n    <input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n    <quartz-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\"\n    >\n    </quartz-cron>\n  `,\n})\nexport class Bs4QuartzCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix = '';\n  @Input() activeTab: Tab = Tab.SECONDS;\n  @Input() tabs: Tab[] | null = null;\n  @Input() hideTabs = false;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled: string | boolean = false;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1313,7 +1331,7 @@
         },
         {
             "name": "Bs4UnixCronComponent",
-            "id": "component-Bs4UnixCronComponent-7ee55f9a8977255c621c6a4a82b085f3dd98da803ba16ca86fbb15a330d512c83293393fe1d7a626d4821091128c8e3f991006851e622ec88b30c43a454291a0",
+            "id": "component-Bs4UnixCronComponent-8ed943331e4c5da9eb35e0ee4a7245b56d4fe5bab58b3fb8fbcaf2d9234984fecbd7b8d3117c0ffca68608b751b9e09265d3614ca99a7bfe9445f73e8196f4fb",
             "file": "stories/bs4-unix-cron.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -1327,40 +1345,44 @@
                 "../node_modules/bootstrap-legacy/scss/bootstrap.scss"
             ],
             "styles": [],
-            "template": "<input\n  class=\"form-control mb-2\"\n  readonly\n  [value]=\"value\">\n\n<unix-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\">\n</unix-cron>\n",
+            "template": "<input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n<unix-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\"\n>\n</unix-cron>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
                     "name": "activeTab",
+                    "defaultValue": "Tab.SECONDS",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 45,
                     "type": "Tab",
                     "decorators": []
                 },
                 {
                     "name": "cssClassPrefix",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 44,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "disabled",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
-                    "type": "string | null | boolean",
+                    "line": 50,
+                    "type": "string | boolean",
                     "decorators": []
                 },
                 {
                     "name": "hideTabs",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 47,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1368,16 +1390,17 @@
                     "name": "localization",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 48,
                     "type": "CronLocalization",
                     "decorators": []
                 },
                 {
                     "name": "tabs",
+                    "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
-                    "type": "Tab[]",
+                    "line": 46,
+                    "type": "Tab[] | null",
                     "decorators": []
                 },
                 {
@@ -1385,7 +1408,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 49,
                     "type": "string",
                     "decorators": []
                 }
@@ -1396,7 +1419,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 42,
                     "type": "EventEmitter"
                 },
                 {
@@ -1404,7 +1427,7 @@
                     "defaultValue": "new EventEmitter<Tab>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 43,
                     "type": "EventEmitter"
                 }
             ],
@@ -1414,12 +1437,25 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
-            "imports": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "UnixCronModule",
+                    "type": "module"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';\nimport { Tab, CronLocalization } from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs4-unix-cron',\n  styleUrls: ['../node_modules/bootstrap-legacy/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  template: `\n    <input\n      class=\"form-control mb-2\"\n      readonly\n      [value]=\"value\">\n\n    <unix-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\">\n    </unix-cron>\n  `,\n})\nexport class Bs4UnixCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix?: string;\n  @Input() activeTab?: Tab;\n  @Input() tabs?: Tab[];\n  @Input() hideTabs?: boolean;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled?: string|null|boolean;\n}\n",
+            "sourceCode": "import {\n  Component,\n  ViewEncapsulation,\n  Input,\n  Output,\n  EventEmitter,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\nimport {\n  UnixCronModule,\n  Tab,\n  CronLocalization,\n} from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs4-unix-cron',\n  styleUrls: ['../node_modules/bootstrap-legacy/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  standalone: true,\n  imports: [CommonModule, FormsModule, UnixCronModule],\n  template: `\n    <input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n    <unix-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\"\n    >\n    </unix-cron>\n  `,\n})\nexport class Bs4UnixCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix = '';\n  @Input() activeTab: Tab = Tab.SECONDS;\n  @Input() tabs: Tab[] | null = null;\n  @Input() hideTabs = false;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled: string | boolean = false;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1432,7 +1468,7 @@
         },
         {
             "name": "Bs5QuartzCronComponent",
-            "id": "component-Bs5QuartzCronComponent-1aab0c6309bb3f23aaab22fb82b67d0ce47152bbec0dd7970a53d04d247da876ae28b57eaf225baf832899d0bd6b4914b9e1a22833866e9bd4117c5edba1c74c",
+            "id": "component-Bs5QuartzCronComponent-0e89986333eb2e96ba285a8aa64bea9450f2bf40165d3b7623d3e3a7721040da5cfc6a4bf9de3419b0c71b488697c49c7375700271ac761f1ded068457bf85e9",
             "file": "stories/bs5-quartz-cron.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -1446,40 +1482,44 @@
                 "../node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "styles": [],
-            "template": "<input\n  class=\"form-control mb-2\"\n  readonly\n  [value]=\"value\">\n\n<bs5-quartz-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\">\n</bs5-quartz-cron>\n",
+            "template": "<input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n<bs5-quartz-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\"\n>\n</bs5-quartz-cron>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
                     "name": "activeTab",
+                    "defaultValue": "Tab.SECONDS",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 45,
                     "type": "Tab",
                     "decorators": []
                 },
                 {
                     "name": "cssClassPrefix",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 44,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "disabled",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
-                    "type": "string | null | boolean",
+                    "line": 50,
+                    "type": "string | boolean",
                     "decorators": []
                 },
                 {
                     "name": "hideTabs",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 47,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -1487,16 +1527,17 @@
                     "name": "localization",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 48,
                     "type": "CronLocalization",
                     "decorators": []
                 },
                 {
                     "name": "tabs",
+                    "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
-                    "type": "Tab[]",
+                    "line": 46,
+                    "type": "Tab[] | null",
                     "decorators": []
                 },
                 {
@@ -1504,7 +1545,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 49,
                     "type": "string",
                     "decorators": []
                 }
@@ -1515,7 +1556,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 42,
                     "type": "EventEmitter"
                 },
                 {
@@ -1523,7 +1564,7 @@
                     "defaultValue": "new EventEmitter<Tab>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 43,
                     "type": "EventEmitter"
                 }
             ],
@@ -1533,12 +1574,25 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
-            "imports": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "Bs5QuartzCronModule",
+                    "type": "module"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';\nimport { Tab, CronLocalization } from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs5-quartz-cron',\n  styleUrls: ['../node_modules/bootstrap/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  template: `\n    <input\n      class=\"form-control mb-2\"\n      readonly\n      [value]=\"value\">\n\n    <bs5-quartz-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\">\n    </bs5-quartz-cron>\n  `,\n})\nexport class Bs5QuartzCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix?: string;\n  @Input() activeTab?: Tab;\n  @Input() tabs?: Tab[];\n  @Input() hideTabs?: boolean;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled?: string|null|boolean;\n}\n",
+            "sourceCode": "import {\n  Component,\n  ViewEncapsulation,\n  Input,\n  Output,\n  EventEmitter,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\nimport {\n  Bs5QuartzCronModule,\n  Tab,\n  CronLocalization,\n} from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs5-quartz-cron',\n  styleUrls: ['../node_modules/bootstrap/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  standalone: true,\n  imports: [CommonModule, FormsModule, Bs5QuartzCronModule],\n  template: `\n    <input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n    <bs5-quartz-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\"\n    >\n    </bs5-quartz-cron>\n  `,\n})\nexport class Bs5QuartzCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix = '';\n  @Input() activeTab: Tab = Tab.SECONDS;\n  @Input() tabs: Tab[] | null = null;\n  @Input() hideTabs = false;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled: string | boolean = false;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2036,7 +2090,7 @@
         },
         {
             "name": "Bs5UnixCronComponent",
-            "id": "component-Bs5UnixCronComponent-32617a846e37d89d844dc33f2240d088304524c82da298fb714b244b497e04f79fd3b4234611562cd01ec44c82830ee7d58a8e212fc8679b3188dccc95b2f309",
+            "id": "component-Bs5UnixCronComponent-dc1344e761a0bb1c4e2fdb81c4b7fab25e07cf35a9f270d8c815a6c40fe775d8203d40c0fb499f7fe525f000b8f713dbc6c524ec8da9548c483e3a4a223191d2",
             "file": "stories/bs5-unix-cron.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -2050,40 +2104,44 @@
                 "../node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "styles": [],
-            "template": "<input\n  class=\"form-control mb-2\"\n  readonly\n  [value]=\"value\">\n\n<bs5-unix-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\">\n</bs5-unix-cron>\n",
+            "template": "<input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n<bs5-unix-cron\n  name=\"cron\"\n  [cssClassPrefix]=\"cssClassPrefix\"\n  [activeTab]=\"activeTab\"\n  [tabs]=\"tabs\"\n  [hideTabs]=\"hideTabs\"\n  [localization]=\"localization\"\n  [disabled]=\"disabled\"\n  [(ngModel)]=\"value\"\n  (changed)=\"changed.emit($event)\"\n  (tabChanged)=\"tabChanged.emit($event)\"\n>\n</bs5-unix-cron>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
                     "name": "activeTab",
+                    "defaultValue": "Tab.SECONDS",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 45,
                     "type": "Tab",
                     "decorators": []
                 },
                 {
                     "name": "cssClassPrefix",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 44,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "disabled",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 37,
-                    "type": "string | null | boolean",
+                    "line": 50,
+                    "type": "string | boolean",
                     "decorators": []
                 },
                 {
                     "name": "hideTabs",
+                    "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 47,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2091,16 +2149,17 @@
                     "name": "localization",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 48,
                     "type": "CronLocalization",
                     "decorators": []
                 },
                 {
                     "name": "tabs",
+                    "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
-                    "type": "Tab[]",
+                    "line": 46,
+                    "type": "Tab[] | null",
                     "decorators": []
                 },
                 {
@@ -2108,7 +2167,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36,
+                    "line": 49,
                     "type": "string",
                     "decorators": []
                 }
@@ -2119,7 +2178,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 42,
                     "type": "EventEmitter"
                 },
                 {
@@ -2127,7 +2186,7 @@
                     "defaultValue": "new EventEmitter<Tab>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 43,
                     "type": "EventEmitter"
                 }
             ],
@@ -2137,12 +2196,25 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
-            "imports": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "Bs5UnixCronModule",
+                    "type": "module"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';\nimport { Tab, CronLocalization } from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs5-unix-cron',\n  styleUrls: ['../node_modules/bootstrap/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  template: `\n    <input\n      class=\"form-control mb-2\"\n      readonly\n      [value]=\"value\">\n\n    <bs5-unix-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\">\n    </bs5-unix-cron>\n  `,\n})\nexport class Bs5UnixCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix?: string;\n  @Input() activeTab?: Tab;\n  @Input() tabs?: Tab[];\n  @Input() hideTabs?: boolean;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled?: string|null|boolean;\n}\n",
+            "sourceCode": "import {\n  Component,\n  ViewEncapsulation,\n  Input,\n  Output,\n  EventEmitter,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\nimport {\n  Bs5UnixCronModule,\n  Tab,\n  CronLocalization,\n} from './../projects/ng-cron/src/public-api';\n\n@Component({\n  selector: 'storybook-bs5-unix-cron',\n  styleUrls: ['../node_modules/bootstrap/scss/bootstrap.scss'],\n  encapsulation: ViewEncapsulation.None,\n  standalone: true,\n  imports: [CommonModule, FormsModule, Bs5UnixCronModule],\n  template: `\n    <input class=\"form-control mb-2\" readonly [value]=\"value\" />\n\n    <bs5-unix-cron\n      name=\"cron\"\n      [cssClassPrefix]=\"cssClassPrefix\"\n      [activeTab]=\"activeTab\"\n      [tabs]=\"tabs\"\n      [hideTabs]=\"hideTabs\"\n      [localization]=\"localization\"\n      [disabled]=\"disabled\"\n      [(ngModel)]=\"value\"\n      (changed)=\"changed.emit($event)\"\n      (tabChanged)=\"tabChanged.emit($event)\"\n    >\n    </bs5-unix-cron>\n  `,\n})\nexport class Bs5UnixCronComponent {\n  @Output() readonly changed = new EventEmitter<string>();\n  @Output() readonly tabChanged = new EventEmitter<Tab>();\n  @Input() cssClassPrefix = '';\n  @Input() activeTab: Tab = Tab.SECONDS;\n  @Input() tabs: Tab[] | null = null;\n  @Input() hideTabs = false;\n  @Input() localization?: CronLocalization;\n  @Input() value = '';\n  @Input() disabled: string | boolean = false;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -11512,7 +11584,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs4QuartzCronComponent>",
-                "defaultValue": "{\n  title: 'Bootstrap4 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        QuartzCronModule\n      ],\n      declarations: [Bs4QuartzCronComponent]\n    })\n  ],\n  component: Bs4QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                "defaultValue": "{\n  title: 'Bootstrap4 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs4QuartzCronComponent],\n    })\n  ],\n  component: Bs4QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
             },
             {
                 "name": "meta",
@@ -11522,7 +11594,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs4UnixCronComponent>",
-                "defaultValue": "{\n  title: 'Bootstrap4 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        UnixCronModule\n      ],\n      declarations: [Bs4UnixCronComponent]\n    })\n  ],\n  component: Bs4UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                "defaultValue": "{\n  title: 'Bootstrap4 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs4UnixCronComponent],\n    })\n  ],\n  component: Bs4UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
             },
             {
                 "name": "meta",
@@ -11532,7 +11604,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs5QuartzCronComponent>",
-                "defaultValue": "{\n  title: 'Bootstrap5 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        Bs5QuartzCronModule\n      ],\n      declarations: [Bs5QuartzCronComponent]\n    })\n  ],\n  component: Bs5QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                "defaultValue": "{\n  title: 'Bootstrap5 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs5QuartzCronComponent],\n    }),\n  ],\n  component: Bs5QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    hideTabs: {\n      control: 'boolean',\n    },\n    cssClassPrefix: {\n      control: 'text',\n    },\n    localization: {\n      control: 'object',\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -11542,7 +11614,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Bs5UnixCronComponent>",
-                "defaultValue": "{\n  title: 'Bootstrap5 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        Bs5UnixCronModule\n      ],\n      declarations: [Bs5UnixCronComponent]\n    })\n  ],\n  component: Bs5UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                "defaultValue": "{\n  title: 'Bootstrap5 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs5UnixCronComponent],\n    }),\n  ],\n  component: Bs5UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    hideTabs: {\n      control: 'boolean',\n    },\n    cssClassPrefix: {\n      control: 'text',\n    },\n    localization: {\n      control: 'object',\n    },\n  },\n}"
             },
             {
                 "name": "require",
@@ -11581,7 +11653,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StoryObj<Bs5QuartzCronComponent>",
-                "defaultValue": "{\n  args: {\n    value: '2,0,4,3,1 0/1 3/2 ? * 4/5 *',\n    changed: action('changed'),\n    tabChanged: action('tabChanged')\n  }\n}"
+                "defaultValue": "{\n  args: {\n    value: '2,0,4,3,1 0/1 3/2 ? * 4/5 *',\n    changed: action('changed'),\n    tabChanged: action('tabChanged'),\n  },\n}"
             },
             {
                 "name": "Template",
@@ -11591,7 +11663,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StoryObj<Bs5UnixCronComponent>",
-                "defaultValue": "{\n  args: {\n    value: '0,1,2 */8 ? JAN,FEB */4',\n    changed: action('changed'),\n    tabChanged: action('tabChanged')\n  }\n}"
+                "defaultValue": "{\n  args: {\n    value: '0,1,2 */8 ? JAN,FEB */4',\n    changed: action('changed'),\n    tabChanged: action('tabChanged'),\n  },\n}"
             }
         ],
         "functions": [
@@ -11770,7 +11842,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs4QuartzCronComponent>",
-                    "defaultValue": "{\n  title: 'Bootstrap4 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        QuartzCronModule\n      ],\n      declarations: [Bs4QuartzCronComponent]\n    })\n  ],\n  component: Bs4QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                    "defaultValue": "{\n  title: 'Bootstrap4 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs4QuartzCronComponent],\n    })\n  ],\n  component: Bs4QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
                 },
                 {
                     "name": "Template",
@@ -11802,7 +11874,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs4UnixCronComponent>",
-                    "defaultValue": "{\n  title: 'Bootstrap4 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        UnixCronModule\n      ],\n      declarations: [Bs4UnixCronComponent]\n    })\n  ],\n  component: Bs4UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                    "defaultValue": "{\n  title: 'Bootstrap4 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs4UnixCronComponent],\n    })\n  ],\n  component: Bs4UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
                 },
                 {
                     "name": "Template",
@@ -11834,7 +11906,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs5QuartzCronComponent>",
-                    "defaultValue": "{\n  title: 'Bootstrap5 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        Bs5QuartzCronModule\n      ],\n      declarations: [Bs5QuartzCronComponent]\n    })\n  ],\n  component: Bs5QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                    "defaultValue": "{\n  title: 'Bootstrap5 - Quartz Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs5QuartzCronComponent],\n    }),\n  ],\n  component: Bs5QuartzCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    hideTabs: {\n      control: 'boolean',\n    },\n    cssClassPrefix: {\n      control: 'text',\n    },\n    localization: {\n      control: 'object',\n    },\n  },\n}"
                 },
                 {
                     "name": "Template",
@@ -11844,7 +11916,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "StoryObj<Bs5QuartzCronComponent>",
-                    "defaultValue": "{\n  args: {\n    value: '2,0,4,3,1 0/1 3/2 ? * 4/5 *',\n    changed: action('changed'),\n    tabChanged: action('tabChanged')\n  }\n}"
+                    "defaultValue": "{\n  args: {\n    value: '2,0,4,3,1 0/1 3/2 ? * 4/5 *',\n    changed: action('changed'),\n    tabChanged: action('tabChanged'),\n  },\n}"
                 }
             ],
             "stories/bs5-unix-cron.stories.ts": [
@@ -11866,7 +11938,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<Bs5UnixCronComponent>",
-                    "defaultValue": "{\n  title: 'Bootstrap5 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [\n        CommonModule,\n        FormsModule,\n        Bs5UnixCronModule\n      ],\n      declarations: [Bs5UnixCronComponent]\n    })\n  ],\n  component: Bs5UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR\n      ]\n    },\n    disabled: {\n      control: 'boolean'\n    },\n    hideTabs: {\n      control: 'boolean'\n    },\n    cssClassPrefix: {\n      control: 'text'\n    },\n    localization: {\n      control: 'object'\n    },\n  }\n}"
+                    "defaultValue": "{\n  title: 'Bootstrap5 - Unix Cron',\n  decorators: [\n    moduleMetadata({\n      imports: [Bs5UnixCronComponent],\n    }),\n  ],\n  component: Bs5UnixCronComponent,\n  argTypes: {\n    tabs: {\n      control: 'inline-check',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    activeTab: {\n      control: 'inline-radio',\n      options: [\n        Tab.SECONDS,\n        Tab.MINUTES,\n        Tab.HOURS,\n        Tab.MONTH,\n        Tab.DAY,\n        Tab.YEAR,\n      ],\n    },\n    disabled: {\n      control: 'boolean',\n    },\n    hideTabs: {\n      control: 'boolean',\n    },\n    cssClassPrefix: {\n      control: 'text',\n    },\n    localization: {\n      control: 'object',\n    },\n  },\n}"
                 },
                 {
                     "name": "Template",
@@ -11876,7 +11948,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "StoryObj<Bs5UnixCronComponent>",
-                    "defaultValue": "{\n  args: {\n    value: '0,1,2 */8 ? JAN,FEB */4',\n    changed: action('changed'),\n    tabChanged: action('tabChanged')\n  }\n}"
+                    "defaultValue": "{\n  args: {\n    value: '0,1,2 */8 ? JAN,FEB */4',\n    changed: action('changed'),\n    tabChanged: action('tabChanged'),\n  },\n}"
                 }
             ],
             "projects/ng-cron/src/lib/styles/generate-schema.ts": [

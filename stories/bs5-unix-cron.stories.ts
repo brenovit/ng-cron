@@ -1,22 +1,14 @@
 import { StoryObj, Meta, moduleMetadata } from '@storybook/angular';
 import { action } from 'storybook/actions';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { Bs5UnixCronModule, Tab } from './../projects/ng-cron/src/public-api';
+import { Tab } from './../projects/ng-cron/src/public-api';
 import { Bs5UnixCronComponent } from './bs5-unix-cron.component';
 
 const meta: Meta<Bs5UnixCronComponent> = {
   title: 'Bootstrap5 - Unix Cron',
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        FormsModule,
-        Bs5UnixCronModule
-      ],
-      declarations: [Bs5UnixCronComponent]
-    })
+      imports: [Bs5UnixCronComponent],
+    }),
   ],
   component: Bs5UnixCronComponent,
   argTypes: {
@@ -28,8 +20,8 @@ const meta: Meta<Bs5UnixCronComponent> = {
         Tab.HOURS,
         Tab.MONTH,
         Tab.DAY,
-        Tab.YEAR
-      ]
+        Tab.YEAR,
+      ],
     },
     activeTab: {
       control: 'inline-radio',
@@ -39,22 +31,22 @@ const meta: Meta<Bs5UnixCronComponent> = {
         Tab.HOURS,
         Tab.MONTH,
         Tab.DAY,
-        Tab.YEAR
-      ]
+        Tab.YEAR,
+      ],
     },
     disabled: {
-      control: 'boolean'
+      control: 'boolean',
     },
     hideTabs: {
-      control: 'boolean'
+      control: 'boolean',
     },
     cssClassPrefix: {
-      control: 'text'
+      control: 'text',
     },
     localization: {
-      control: 'object'
+      control: 'object',
     },
-  }
+  },
 };
 export default meta;
 
@@ -62,9 +54,8 @@ const Template: StoryObj<Bs5UnixCronComponent> = {
   args: {
     value: '0,1,2 */8 ? JAN,FEB */4',
     changed: action('changed'),
-    tabChanged: action('tabChanged')
-  }
+    tabChanged: action('tabChanged'),
+  },
 };
 
 export const Default = Template;
-

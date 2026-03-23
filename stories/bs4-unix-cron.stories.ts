@@ -1,21 +1,13 @@
 import { StoryObj, Meta, moduleMetadata } from '@storybook/angular';
 import { action } from 'storybook/actions';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { UnixCronModule, Tab } from './../projects/ng-cron/src/public-api';
+import { Tab } from './../projects/ng-cron/src/public-api';
 import { Bs4UnixCronComponent } from './bs4-unix-cron.component';
 
 const meta: Meta<Bs4UnixCronComponent> = {
   title: 'Bootstrap4 - Unix Cron',
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        FormsModule,
-        UnixCronModule
-      ],
-      declarations: [Bs4UnixCronComponent]
+      imports: [Bs4UnixCronComponent],
     })
   ],
   component: Bs4UnixCronComponent,

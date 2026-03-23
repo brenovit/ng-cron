@@ -1,21 +1,13 @@
 import { StoryObj, Meta, moduleMetadata } from '@storybook/angular';
 import { action } from 'storybook/actions';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { QuartzCronModule, Tab } from './../projects/ng-cron/src/public-api';
+import { Tab } from './../projects/ng-cron/src/public-api';
 import { Bs4QuartzCronComponent } from './bs4-quartz-cron.component';
 
 const meta: Meta<Bs4QuartzCronComponent> = {
   title: 'Bootstrap4 - Quartz Cron',
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        FormsModule,
-        QuartzCronModule
-      ],
-      declarations: [Bs4QuartzCronComponent]
+      imports: [Bs4QuartzCronComponent],
     })
   ],
   component: Bs4QuartzCronComponent,

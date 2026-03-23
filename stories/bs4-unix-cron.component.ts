@@ -1,15 +1,27 @@
-import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
-import { Tab, CronLocalization } from './../projects/ng-cron/src/public-api';
+import {
+  Component,
+  ViewEncapsulation,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import {
+  UnixCronModule,
+  Tab,
+  CronLocalization,
+} from './../projects/ng-cron/src/public-api';
 
 @Component({
   selector: 'storybook-bs4-unix-cron',
   styleUrls: ['../node_modules/bootstrap-legacy/scss/bootstrap.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [CommonModule, FormsModule, UnixCronModule],
   template: `
-    <input
-      class="form-control mb-2"
-      readonly
-      [value]="value">
+    <input class="form-control mb-2" readonly [value]="value" />
 
     <unix-cron
       name="cron"
@@ -21,18 +33,19 @@ import { Tab, CronLocalization } from './../projects/ng-cron/src/public-api';
       [disabled]="disabled"
       [(ngModel)]="value"
       (changed)="changed.emit($event)"
-      (tabChanged)="tabChanged.emit($event)">
+      (tabChanged)="tabChanged.emit($event)"
+    >
     </unix-cron>
   `,
 })
 export class Bs4UnixCronComponent {
   @Output() readonly changed = new EventEmitter<string>();
   @Output() readonly tabChanged = new EventEmitter<Tab>();
-  @Input() cssClassPrefix?: string;
-  @Input() activeTab?: Tab;
-  @Input() tabs?: Tab[];
-  @Input() hideTabs?: boolean;
+  @Input() cssClassPrefix = '';
+  @Input() activeTab: Tab = Tab.SECONDS;
+  @Input() tabs: Tab[] | null = null;
+  @Input() hideTabs = false;
   @Input() localization?: CronLocalization;
   @Input() value = '';
-  @Input() disabled?: string|null|boolean;
+  @Input() disabled: string | boolean = false;
 }

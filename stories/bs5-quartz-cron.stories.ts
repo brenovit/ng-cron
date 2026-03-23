@@ -1,22 +1,14 @@
 import { StoryObj, Meta, moduleMetadata } from '@storybook/angular';
 import { action } from 'storybook/actions';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
-import { Bs5QuartzCronModule, Tab } from './../projects/ng-cron/src/public-api';
+import { Tab } from './../projects/ng-cron/src/public-api';
 import { Bs5QuartzCronComponent } from './bs5-quartz-cron.component';
 
 const meta: Meta<Bs5QuartzCronComponent> = {
   title: 'Bootstrap5 - Quartz Cron',
   decorators: [
     moduleMetadata({
-      imports: [
-        CommonModule,
-        FormsModule,
-        Bs5QuartzCronModule
-      ],
-      declarations: [Bs5QuartzCronComponent]
-    })
+      imports: [Bs5QuartzCronComponent],
+    }),
   ],
   component: Bs5QuartzCronComponent,
   argTypes: {
@@ -28,8 +20,8 @@ const meta: Meta<Bs5QuartzCronComponent> = {
         Tab.HOURS,
         Tab.MONTH,
         Tab.DAY,
-        Tab.YEAR
-      ]
+        Tab.YEAR,
+      ],
     },
     activeTab: {
       control: 'inline-radio',
@@ -39,22 +31,22 @@ const meta: Meta<Bs5QuartzCronComponent> = {
         Tab.HOURS,
         Tab.MONTH,
         Tab.DAY,
-        Tab.YEAR
-      ]
+        Tab.YEAR,
+      ],
     },
     disabled: {
-      control: 'boolean'
+      control: 'boolean',
     },
     hideTabs: {
-      control: 'boolean'
+      control: 'boolean',
     },
     cssClassPrefix: {
-      control: 'text'
+      control: 'text',
     },
     localization: {
-      control: 'object'
+      control: 'object',
     },
-  }
+  },
 };
 export default meta;
 
@@ -62,8 +54,8 @@ const Template: StoryObj<Bs5QuartzCronComponent> = {
   args: {
     value: '2,0,4,3,1 0/1 3/2 ? * 4/5 *',
     changed: action('changed'),
-    tabChanged: action('tabChanged')
-  }
+    tabChanged: action('tabChanged'),
+  },
 };
 
 export const Default = Template;
