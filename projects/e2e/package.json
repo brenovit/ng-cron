@@ -1,0 +1,26 @@
+{
+  "name": "@sbzen/e2e",
+  "version": "1.0.19",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && tsc && cp package.json ./dist && tar -czvf dist.tar.gz dist",
+    "clean": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ua-cron/e2e.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ua-cron/e2e/issues"
+  },
+  "homepage": "https://github.com/ua-cron/e2e#readme",
+  "peerDependencies": {
+    "@sbzen/cron-core": "2.0.2"
+  },
+  "devDependencies": {
+    "cypress": "^10.4.0",
+    "typescript": "^4.7.4"
+  }
+}
